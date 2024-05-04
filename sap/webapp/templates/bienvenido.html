@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu+Sans:ital,wght@0,100..800;1,100..800&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poetsen+One&family=Ubuntu+Sans:ital,wght@0,100..800;1,100..800&display=swap" rel="stylesheet">
+    <style>
+        h1 {
+            font-family: "Poetsen One", sans-serif;
+            font-weight: 400;
+            font-style: normal;
+            color: #FB5607;
+        }
+        h2 {
+            font-family: "Poetsen One", sans-serif;
+            font-weight: 400;
+            font-style: normal;
+            margin-top: 2rem;
+        }
+        p {
+            font-family: "Ubuntu Sans", sans-serif;
+            font-style: normal;
+            font-weight: 700;
+        }
+        a {
+            font-family: "Ubuntu Sans", sans-serif;
+            font-style: normal;
+            font-weight: 400;
+            text-decoration: none;
+            padding-bottom: 2rem;
+        }
+        a:hover {
+            cursor: pointer;
+        }
+        .per-h2 {
+            color: #3A86FF;
+        }
+        .dom-h2 {
+            color: #8338EC;
+        }
+        .per-p {
+            color: #FFBE0B;
+        }
+        .dom-p {
+            color: #FF006E;
+        }
+        .per-a {
+            color: #FFBE0B;
+        }
+        .dom-a {
+            color: #FF006E;
+        }
+        table td,
+        table th {
+            border: 1px solid #000;
+            padding: 8px;
+        }
+        .personas-table {
+            font-family: "Ubuntu Sans", sans-serif;
+            font-style: normal;
+            font-weight: 400;
+            font-size: 1rem;
+            text-decoration: none;
+            margin-top: 1.5rem;
+            width: 100%;
+            border-collapse: collapse;
+        }
+        .personas-table th {
+            background-color: #3A86FF;
+            color: white;
+        }
+        .personas-table tr:nth-child(even) {
+            background-color: #3A86FF;
+        }
+        .personas-table tr:nth-child(odd) {
+            background-color: #FFBE0B;
+        }
+        .domicilios-table {
+            font-family: "Ubuntu Sans", sans-serif;
+            font-style: normal;
+            font-weight: 400;
+            font-size: 1rem;
+            text-decoration: none;
+            margin-top: 1.5rem;
+            width: 100%;
+            border-collapse: collapse;
+        }
+        .domicilios-table th {
+            background-color: #8338EC;
+            color: white;
+        }
+        .domicilios-table tr:nth-child(even) {
+            background-color: #8338EC;
+        }
+        .domicilios-table tr:nth-child(odd) {
+            background-color: #FF006E;
+        }
+    </style>
+    <title>Bienvenido</title>
+</head>
+<body>
+    <h1>Bienvenido al Sistema de Administración de Personas</h1>
+
+    <h2 class="per-h2">Personas</h2>
+    <p class="per-p">Número de personas: {{no_personas}}</p>
+    <a class="per-a" href = "nueva_persona">Agregar Persona</a>
+
+    <table class="personas-table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nombre</th>
+                <th>Email</th>
+                <th></th>
+                <th></th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for persona in personas %}
+            <tr>
+                <td>{{persona.id}}</td>
+                <td>{{persona.nombre}} {{persona.apellido}}</td>
+                <td>{{persona.email}}</td>
+                <td><a href="detalle_persona/{{persona.id}}">Ver</a></td>
+                <td><a href="editar_persona/{{persona.id}}">Editar</a></td>
+                <td><a href="eliminar_persona/{{persona.id}}">Eliminar</a></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <h2 class="dom-h2">Domicilios</h2>
+    <p class="dom-p">Número de domicilios: {{no_domicilios}}</p>
+    <a class="dom-a" href = "nuevo_domicilio">Agregar Domicilio</a>
+
+    <table class="domicilios-table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Calle</th>
+                <th>No. Calle</th>
+                <th>País</th>
+                <th></th>
+                <th></th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for domicilio in domicilios %}
+            <tr>
+                <td>{{domicilio.id}}</td>
+                <td>{{domicilio.calle}}</td>
+                <td>{{domicilio.no_calle}}</td>
+                <td>{{domicilio.pais}}</td>
+                <td><a href="detalle_domicilio/{{domicilio.id}}">Ver</a></td>
+                <td><a href="editar_domicilio/{{domicilio.id}}">Editar</a></td>
+                <td><a href="eliminar_domicilio/{{domicilio.id}}">Eliminar</a></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

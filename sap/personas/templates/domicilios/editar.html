@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu+Sans:ital,wght@0,100..800;1,100..800&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poetsen+One&family=Ubuntu+Sans:ital,wght@0,100..800;1,100..800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: "Ubuntu Sans", sans-serif;
+            font-style: normal;
+            font-weight: 700;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+            color: #8338ec;
+        }
+
+        h1 {
+            font-family: "Poetsen One", sans-serif;
+            font-weight: 400;
+            font-style: normal;
+            font-size: 2rem;
+            color: #8338ec;
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        button[type="submit"] {
+            display: block;
+            margin: 20px auto;
+            padding: 10px 20px;
+            background-color: #8338ec;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-family: "Ubuntu Sans", sans-serif;
+            font-weight: 700;
+            font-style: normal;
+            font-size: 1rem;
+        }
+        form {
+            margin: 0 auto;
+            width: 80%;
+            max-width: 600px;
+        }
+        form input[type="text"],
+        form input[type="number"] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button[type="submit"]:hover {
+            background-color: #ff006e;
+        }
+    </style>
+    <title>Editar Domicilio</title>
+</head>
+<body>
+<form method="POST">
+    <h1>Editar Domicilio</h1>
+    <table> {{formaDomicilio}} </table>
+    <button type = "submit">Enviar</button>
+    {% csrf_token %}
+</form>
+</body>
+</html>
